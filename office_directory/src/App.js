@@ -1,10 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
 import React from "react";
-import SearchResultContainer from "./components/SearchResultContainer";
+import Container from "./components/Container";
 
 function App() {
-  return <SearchResultContainer />;
+  return <Container />;
 }
 
 export default App;
