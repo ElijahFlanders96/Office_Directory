@@ -78,7 +78,7 @@ class SearchResultContainer extends Component {
   render() {
     return (
       <div>
-         <Hero backgroundImage="https://c1.wallpaperflare.com/preview/900/267/712/leaf-green-wall-pink.jpg">
+         <Hero backgroundImage="https://www.insperity.com/wp-content/uploads/2016/09/How-to-Avoid-Discrimination-when-Promoting-Employees-640x302.png">
         <h1>Employee Database</h1>
         <h4>Search Employees</h4>
       </Hero>
