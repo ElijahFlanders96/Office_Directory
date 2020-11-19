@@ -8,7 +8,7 @@ function ResultList(props) {
     <tr>
       <th scope="col">Profile Pic</th>
       <th scope="col">#</th>
-      <th scope="col"><button>First</button></th>
+      <th scope="col" onClick={props.handleSort}><button>First</button></th>
       <th scope="col">Last</th>
       <th scope="col">Email</th>
     </tr>

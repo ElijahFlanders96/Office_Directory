@@ -66,10 +66,14 @@ class SearchResultContainer extends Component {
 
     // this.setState({filteredResults: filtered})
   };
-//   handleSort = event => {
-//     event.preventDefault();
-//     console.log("sort");
-//   }
+  handleSort = event => {
+    event.preventDefault();
+    console.log("sort");
+    const sorted = this.state.filteredResults.sort((a,b) => {
+      return (a.sorted > b.sorted)
+    })
+    this.setState({filteredResults: sorted})
+    };
 
   render() {
     return (
