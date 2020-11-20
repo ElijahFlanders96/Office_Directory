@@ -1,6 +1,7 @@
 # Employee Directory
 <img src=“employee-directory.png”>
 ## Table of Contents
+
 * [Description](#Description)
 * [Installation Instruction](#Installation-Instructions)
 * [Usage Information](#Usage-Information)
