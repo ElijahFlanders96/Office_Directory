@@ -1,5 +1,5 @@
 # Employee Directory
-<img src=“employee-directory.png”>
+<img src="employee-directory.png">
 ## Table of Contents
 
 * [Description](#Description)
