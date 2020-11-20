@@ -11,11 +11,11 @@ class SearchResultContainer extends Component {
     filteredResults: []
   };
 
-  // When this component mounts, display all employees???
+  
   componentDidMount() {
     API.getEmployeeData()
     .then(res => {
-    //   console.log(res)
+    
       
       this.setState({ allResults: res.data.results, filteredResults: res.data.results })
       console.log(this.state.filteredResults)
@@ -23,20 +23,7 @@ class SearchResultContainer extends Component {
     .catch(err => console.log(err));
   }
 
-  // need a way to set each employee to a list item on the page
-
-
- // set up a click event to find one - needs more logic?
- /* getEmployeeData() {
-    API.getEmployeeData()
-    .then(res => {
-      console.log(res)
-      console.log(res.data.results)
-      this.setState({ results: res.data.results })
-    });
-  }*/
   
-
 
   handleInputChange = event => {
     const name = event.target.name;
@@ -44,7 +31,7 @@ class SearchResultContainer extends Component {
     console.log(value)
     
     const filtered = this.state.allResults.filter(result => {
-        return result.name.first.toLowerCase().includes(value.toLowerCase())
+      return (result.name.first.toLowerCase().includes(value.toLowerCase())) || (result.name.last.toLowerCase().includes(value.toLowerCase()))
     } )
     // this.setState({filteredResults: filtered})
 
@@ -55,25 +42,21 @@ class SearchResultContainer extends Component {
 
   };
 
-  // When the form is submitted, search the employees to filter? for `this.state.search`?? re-sue the get employees call? what do here?
-  handleFormSubmit = event => {
-    event.preventDefault();
-    //this.getEmployeeData(this.state.search)
-    // const filtered = this.state.allResults.filter(result => {
-    //     return result.name.first.includes(this.state.search)
-    // } )
-    
-
-    // this.setState({filteredResults: filtered})
-  };
+  
   handleSort = event => {
     event.preventDefault();
-    console.log("sort");
-    const sorted = this.state.filteredResults.sort((a,b) => {
-      return (a.sorted > b.sorted)
+    
+    const filter = this.state.filteredResults.sort((a,b) => {
+       
+        if (a.name.first < b.name.first) {
+            return -1;
+        }
+        else return 1;
     })
-    this.setState({filteredResults: sorted})
-    };
+
+    this.setState({ filteredResults : filter })
+    
+  };
 
   render() {
     return (
@@ -84,7 +67,7 @@ class SearchResultContainer extends Component {
       </Hero>
         <SearchForm
           search={this.state.search}
-          handleFormSubmit={this.handleFormSubmit}
+          
           handleInputChange={this.handleInputChange}
         />
         <ResultList results={this.state.filteredResults} 
